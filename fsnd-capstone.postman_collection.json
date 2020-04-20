@@ -1,0 +1,1367 @@
+{
+	"info": {
+		"_postman_id": "e0535120-aed8-4f62-a6db-9428117a88cf",
+		"name": "fsnd-capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "manager",
+			"item": [
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08926578-c4d3-4cb1-8111-82758bf509ce",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains tracks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.tracks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack\",\n    \"artist\": \"TestArtist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5488ab31-e344-447d-966d-9c7eca0275a5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.playlists).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "886c8e63-e276-446c-86f2-1ecd570d2c0d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestPlaylist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41c2917f-56ca-4832-bde5-f37616e8b25f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains playlists array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.playlist.tracks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test2\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZPZUxnSmw5enFEYURvYVVqQy16VyJ9.eyJpc3MiOiJodHRwczovL2Rldi1jb2ZmZWVzaG9wLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMTc4MDI0NzMwNDQwMTA4OTA1MiIsImF1ZCI6WyJtdXNpY2JveCIsImh0dHBzOi8vZGV2LWNvZmZlZXNob3AuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4NzM5MDkyNCwiZXhwIjoxNTg3NDc3MzI0LCJhenAiOiJqYVdYQlR2NnEyV2IzZHBkZDJQVDloOUpYYlpBbkRKUiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6cGxheWxpc3RzIiwiZGVsZXRlOnRyYWNrLWZyb20tcGxheWxpc3QiLCJkZWxldGU6dHJhY2tzIiwiZ2V0OnNpbmdsZS1wbGF5bGlzdCIsImdldDp0cmFja3MiLCJwYXRjaDpwbGF5bGlzdHMiLCJwYXRjaDp0cmFja3MiLCJwb3N0OnBsYXlsaXN0cyIsInBvc3Q6dHJhY2tzIiwicG9zdDp0cmFjay10by1wbGF5bGlzdCJdfQ.gQhgU7VJOPFX0l9OMw_oW5BdGpiatfJOUtcvd8aIh8PHfpzinWPmRMBuJ58cnoQ0cilu5YREDayOITVdCoc2NtUQCa8MN5XKvDCUFj8CJngyMzZPL0Owc7gyQR6f619JW7zPSemFebLDviswcPuo2RBsnYVtyAxT5QR44a2hSZmadUeqRDHmk9jQ6PLsyqgIwOoo4P0NvQDL2vlLw8QyD_cv7oVL0sAURK4SZkIvMp-qNwpVMUgPbQRjk2T_cle8O2W3QGrzqqFv3e7tlJLCByPqx8FonKDd-MtMuqk00kTVecz0fMtJMGY11PXI6MNPUgWVkXRkhuB42rMiGk44_A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "83a1ecda-eed3-4743-a0e7-d847296ca92d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "eaeab9e3-fcf9-4393-9b02-f0a0291bd33e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "DJ",
+			"item": [
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08926578-c4d3-4cb1-8111-82758bf509ce",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains tracks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.tracks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack\",\n    \"artist\": \"TestArtist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5488ab31-e344-447d-966d-9c7eca0275a5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.playlists).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "886c8e63-e276-446c-86f2-1ecd570d2c0d",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestPlaylist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41c2917f-56ca-4832-bde5-f37616e8b25f",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"pm.globals.set(\"variable_key\", \"variable_value\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZPZUxnSmw5enFEYURvYVVqQy16VyJ9.eyJpc3MiOiJodHRwczovL2Rldi1jb2ZmZWVzaG9wLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTk2MGRjMGRmYWJhZTBjODk0YTdlNjYiLCJhdWQiOiJtdXNpY2JveCIsImlhdCI6MTU4NzM5MTIyMiwiZXhwIjoxNTg3NDc3NjIyLCJhenAiOiJqYVdYQlR2NnEyV2IzZHBkZDJQVDloOUpYYlpBbkRKUiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOnRyYWNrLWZyb20tcGxheWxpc3QiLCJnZXQ6c2luZ2xlLXBsYXlsaXN0IiwiZ2V0OnRyYWNrcyIsInBvc3Q6dHJhY2stdG8tcGxheWxpc3QiXX0.BVSkCJCOI75VWvWMcBY8q_kQRH51wVHOBqHyNqExYMkyudX0N0jT-pu4-KuaNUwBVu1la0a1Qby6CVhJwWCsGZWFBQXx8d1W0RCQ83Flw4wcqV2dQgWhtYbAFo8j8aBEBUvJWk_rVCzsojX53j7ts0xAoby55LQCZb7np1GfrBf5VbQCkVXgFJrtFsJJGObLj3cqaAPWPzmDaK_n9yiZefYrRhD7Up6n3LgyKuSzuEPFCtNopEtWJe6jINaQ2v_HzB2qzdf3Sh4hc-D-DhR7ewOQvjRcRdiciWlvZ0oM9j0KCCKiGjGmy-sD8I972Mnk3DM4mokx2B1QFmoL_GRn_g",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6253019a-79f1-4ac1-8a26-6e8075904a9d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4308f850-ea62-40f0-80f4-185f6c27e7dd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08926578-c4d3-4cb1-8111-82758bf509ce",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack\",\n    \"artist\": \"TestArtist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tracks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecea68ca-a0a4-4172-83b8-0ed08ca04bd3",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestTrack10\",\n    \"artist\": \"TestArtist10\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/tracks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tracks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5488ab31-e344-447d-966d-9c7eca0275a5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.playlists).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "886c8e63-e276-446c-86f2-1ecd570d2c0d",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TestPlaylist\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41c2917f-56ca-4832-bde5-f37616e8b25f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 401",
+									"\", function () {",
+									"    pm.response.to.have.status(401",
+									"    );",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/playlists/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7184fb97-713a-41a2-8b2b-939e5cf28415",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"track_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/playlists/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7133d203-7e68-49bd-8558-f43018ae38d1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1afa527a-58fe-49db-9216-95968a929ed2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "38ea4e74-3410-40ae-9d1b-7becaa1ac4d3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "219d0e3b-45cc-4c62-b643-5edb9eaf59f3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b633b474-1665-492b-bfdc-f6332c6d9b3c",
+			"key": "host",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}

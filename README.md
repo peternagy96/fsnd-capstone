@@ -1,5 +1,15 @@
 # Club Musicbox App Backend
 
+This application can be used to store songs and playlists in a database.
+Once there are some playlists and songs stored, songs can be added to any number of playlists.
+
+There is role-based access enabled, and the two roles are DJ and Club Manager. Club managers are allowed to do all possible operations.
+DJs are limited to viewing the already added songs and playlists, 
+and adding/removing songs to specific playlists. 
+
+Users without the aformentioned roles are only allowed to view the
+list of playlists available on the server.
+
 ## Getting Started
 
 ### Installing Dependencies
@@ -49,5 +59,90 @@ flask run --reload
 The `--reload` flag will detect file changes and restart the server automatically.
 
 ## Endpoints
+```
+GET /tracks
+POST /tracks
+GET /tracks/\<id>
+PATCH /tracks/\<id>
+DELETE /tracks/\<id>
+GET /playlists
+POST /playlists
+POST /playlists/\<id>
+PATCH /playlists/\<id>
+DELETE /playlists/\<id>
+```
 
-ToDo!!
+
+### GET /tracks
+```
+- Fetches a dictionary of songs
+- Request Arguments: None
+- Returns: An object where the primary key is their ID and keys
+are the song names and artist names
+```
+
+### POST /tracks
+```
+- Adds a song to the database
+- Request Arguments: A dictionary with the song and artist names
+- Returns: -
+```
+
+### GET /tracks/\<id>
+```
+- Fetches a song and the plalyist IDs it is inhcluded in
+- Request Arguments: song ID to be fetcheds
+- Returns: An object where the primary key is their ID and keys
+are the song names and artist names and the playlists as a list
+in which the song appears
+```
+
+### PATCH /tracks/\<id>
+```
+- Adds a song to the database
+- Request Arguments: A dictionary with the song and artist names
+- Returns: -
+```
+
+### DELETE /tracks/\<id>
+```
+- Adds a song to the database
+- Request Arguments: A dictionary with the song and artist names
+- Returns: -
+```
+
+### GET /playlists
+```
+- Fetches a dictionary of playlists
+- Request Arguments: None
+- Returns: An object where the primary key is the playlist IDs and keys
+are the playlist names and the number of songs stored on them
+```
+
+### POST /playlists
+```
+- Adds a playlist to the database
+- Request Arguments: Dictionary wit hthe name of the playlist as a key
+- Returns: -
+```
+
+### POST /playlists/\<id>
+```
+- Adds a song to the playlist with the given ID
+- Request Arguments: The ID of the song to be added
+- Returns: -
+```
+
+### PATCH /playlists/\<id>
+```
+- Updates a playlist name in the database
+- Request Arguments: A dictionary with the new playlist name
+- Returns: -
+```
+
+### DELETE /playlists/\<id>
+```
+- Deletes a song from a playlist with the given ID
+- Request Arguments: The song ID to be deleted
+- Returns: -
+```
