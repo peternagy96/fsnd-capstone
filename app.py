@@ -12,8 +12,6 @@ app = Flask(__name__)
 setup_db(app)
 CORS(app)
 
-# db_drop_and_create_all()
-
 # ROUTES
 @app.route('/')
 def get_greeting():
@@ -251,4 +249,5 @@ def resource_already_exists(error):
 
 
 if __name__ == '__main__':
+    db_drop_and_create_all()
     app.run(host='0.0.0.0', port=5000, debug=True)
