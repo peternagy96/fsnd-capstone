@@ -5,9 +5,14 @@ from sqlalchemy import Column, String, Integer, ForeignKey, Table
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 
-database_filename = "database.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+environment = os.environ.get('ENV', None)
+if environment:
+    database_path = 'postgres://ggsmtpjaccbwln:be87073521a8b371b89514bfc77aabb69731d545a201360249f14391ddb82c30@ec2-23-20-129-146.compute-1.amazonaws.com:5432/dao1cm1fm4ls9k'
+
+else:
+    database_filename = "database.db"
+    project_dir = os.path.dirname(os.path.abspath(__file__))
+    database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 
 db = SQLAlchemy()
 
