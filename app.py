@@ -13,12 +13,9 @@ setup_db(app)
 CORS(app)
 
 # ROUTES
-@app.route('/')
-def get_greeting():
-    excited = 'true'
-    greeting = "Hello" 
-    if excited == 'true': greeting = greeting + "!!!!!"
-    return greeting
+@app.route('/', methods=['POST', 'GET'])
+def basic():
+    return jsonify("Healthy")
 
 # PLAYLIST --------------------------------------------------------
 @app.route('/playlists', methods=['GET'])
@@ -232,11 +229,11 @@ def not_found(error):
 
 
 @app.errorhandler(401)
-def unprocessable(error):
+def unauthorized(error):
     return jsonify({
                     "success": False,
                     "error": 401,
-                    "message": "unprocessable"
+                    "message": "unauthorized"
                     }), 401
 
 @app.errorhandler(409)
@@ -246,6 +243,22 @@ def resource_already_exists(error):
                     "error": 409,
                     "message": "resource_already_exists"
                     }), 409
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({
+                    "success": False,
+                    "erorr": 500,
+                    "message": "internal server error"
+                    }), 500
+
+
+@app.errorhandler(AuthError)
+def handle_auth_error(ex):
+    response = jsonify(ex.error)
+    response.status_code = ex.status_code
+    return response
 
 
 if __name__ == '__main__':
